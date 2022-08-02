@@ -1,68 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navbar</title>
     <style>
-        #container{
+        #container {
             display: flex;
-            background-color:black;
+            background-color: darkcyan;
             justify-content: space-between;
             color: aliceblue;
             border-radius: 8px;
         }
-        #container > div{
+
+        #container>div {
             padding: 25px 15px;
         }
-        #container #second{
+
+        #container #second {
             display: flex;
-            width : 33%;
+            width: 33%;
             justify-content: space-between;
             margin-right: 30px;
         }
-        #container #first{
+
+        #container #first {
             margin-left: 100px;
         }
-        #second #button{
+
+        #second #button {
             padding: 10px 25px;
             margin-top: -10px;
             border-radius: 10px;
-            background-color:rgb(211, 242, 255);
+            background-color: rgb(211, 242, 255);
             color: black;
         }
-        #second > div:nth-child(4){
+
+        #second>div:nth-child(4) {
             border: solid 1px crimson;
             padding: 10px 20px;
             margin-top: -10px;
             border-radius: 10px;
         }
 
-        #second  #button:hover{
+        #second #button:hover {
             background-color: skyblue;
             color: white;
         }
-        #second > div:nth-child(4):hover{
+
+        #second>div:nth-child(4):hover {
             background-color: crimson;
             color: white;
         }
-        #second > div:nth-child(1):hover, div:nth-child(2):hover{
+
+        #second>div:nth-child(1):hover,
+        div:nth-child(2):hover {
             color: crimson;
         }
-
     </style>
 </head>
+
 <body>
     <div id="container">
-        <div id="first"><img src="https://content.shop4reebok.com/static/header/vector_logo_white_145x19_website.png" alt=""></div>
+        <div id="first"><img
+                src="https://cdn.shopify.com/s/files/1/0892/3398/files/NIKITA-LOGO-BLACK_ebacf388-d76a-4e6f-92ff-6977248082cf_400x.png?v=1602280444"
+                alt=""  width="30%"></div>
         <div></div>
         <div id="second">
-            <div class="child">Men</div>
-            <div class="child">Women</div>
-            <div class="child"><a href="https://shop4reebok.com/" target="_blank"><button id="button" type="button">Login </button></a></div>
-            <div class="child">Sign Up</div>
+            <div class="child"><a href="mens.html" target="_blank"><button id="button" type="button">Men
+            </button></a></div>
+            <div class="child"><a href="login.html" target="_blank"><button id="button" type="button">Login
+                    </button></a></div>
+            <div class="child"><a href="signin.html" target="_blank"><button id="button" type="button">Signin
+                    </button></a></div>
+            <!-- <div class="child"><a href="signin.html"></a>Sign Up</div> -->
         </div>
     </div>
 </body>
+
 </html>

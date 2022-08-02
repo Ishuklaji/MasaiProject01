@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mens Products</title>
+    <style>
+        #data{
+            border: 2px solid crimson;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        #data > div{
+          border: 1px solid blue;
+        }
+        h5+div {
+            display:flex;
+            justify-content:space-around;
+        }
+        h5+div>p:last-child{
+            text-decoration: line-through;
+        }
+        .cart{
+          width:50%;
+          background-color:teal;
+          color:white;
+          border:none;
+          display:block;
+          margin: 15px auto;
+          padding: 5px;
+          border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+     <button><a href="menscart.html">Go to Cart</a></button>
+     <!-- <button><a href="womens.html">Go to Women's Section</a></button> -->
+    <div id="data"></div>
+</body>
+</html>
+
+<script>
+    var mensData = [
+    {  
+      id:1,
+      image_url:
+        "https://content.shop4reebok.com/static/Product-EX4296/reebok_EX4296_1.jpg.plp",
+      name: "MEN'S REEBOK RUNNING ROADMAP SHOES",
+      price: "1170",
+      strikedoffprice: "2599",
+    },
+    {
+      id:2,
+      image_url:
+        "https://content.shop4reebok.com/static/Product-EX3921/reebok_EX3921_1.jpg.plp",
+      name: "MEN'S REEBOK SWIM ARUBA FLIP SLIPPERS ",
+      price: 699,
+      strikedoffprice: 999,
+    },
+    {
+      id:3,
+      image_url:
+        "https://content.shop4reebok.com/static/Product-EX4160/reebok_EX4160_1.jpg.plp",
+      name: " MEN'S REEBOK RUNNING AUSTIN SHOES",
+      price: 945,
+      strikedoffprice: 2099,
+    },
+    {
+      id:4,
+      image_url:
+        "https://content.shop4reebok.com/static/Product-FV8798/MEN_SWIM_SLIPPERS_FV8798_1.jpg.plp",
+      name: "MEN'S REEBOK SWIM AVENGER FLIP SLIPPERS",
+      price: 399,
+      strikedoffprice: 799,
+    },
+    {
+      id:5,
+      image_url:
+        "https://content.shop4reebok.com/static/Product-EW5173/reebok_EW5173_1.jpg.plp",
+      name: "MEN'S REEBOK RUNNING TEMPO SHOES ",
+      price: 1620,
+      strikedoffprice: 3599,
+    },
+    {
+      id:6,
+      image_url:
+        "https://content.shop4reebok.com/static/Product-FV7329/reebok_FV7329_1.jpg.plp ",
+      name: " MEN'S REEBOK RUNNING ASTRO SHOES ",
+      price: 1440,
+      strikedoffprice: 3199,
+    },
+    {
+      id:7,
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GD8567/MEN_TRAINING_PANTS_GD8567_1.jpg.plp ",
+      name: " MEN'S TRAINING WORKOUT READY PANTS ",
+      price: 1999,
+      strikedoffprice: 3199,
+    },
+    {
+      id:8,
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GQ8758/reebok_GQ8758_1.jpg.plp ",
+      name: "MEN'S REEBOK TRAINING  POLO T-SHIRTS TEE  ",
+      price: 769,
+      strikedoffprice: 1099,
+    },
+    {
+      id:9,
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GP7180/reebok_GP7180_1.jpg.plp",
+      name: "MEN'S REEBOK TRAINING WORKOUT  TEE  ",
+      price: 1299,
+      strikedoffprice: 1440,
+    },
+  ];
+    // for(var i=0; i<9;i++) {
+    //     <div>
+    //     <img src="https://content.shop4reebok.com/static/Product-EX4296/reebok_EX4296_1.jpg.plp" alt="product1">
+    //     <h5>MEN'S REEBOK RUNNING ROADMAP SHOES</h5>
+    //     <div>
+    //         <p>1170</p>
+    //         <p>2500</p>
+    //     </div>
+    //     <button>Add to Cart</button>
+    //  </div>
+    // }
+    displaypr();
+   function displaypr() {
+    mensData.map(function(e,i) {
+        var div=document.createElement("div");
+        
+        var img=document.createElement("img");
+        img.setAttribute("src",e.image_url);
+        img.setAttribute("alt",i);
+        
+        var h5=document.createElement("h5");
+        h5.innerText=e.name;
+        
+        var pricebox=document.createElement("div")
+        
+        var price=document.createElement("p")
+        price.innerText=e.price;
+       
+        var sprice=document.createElement("p")
+        sprice.innerText=e.strikedoffprice;
+        
+        pricebox.append(price,sprice);
+        
+        var cart=document.createElement("button");
+        cart.innerText="Add to Cart";
+        cart.setAttribute("class","cart");
+        cart.addEventListener("click",function(){addtocart(i)});
+
+        div.append(img,h5,pricebox,cart);
+        document.getElementById("data").append(div);
+    })
+   }
+   var cartarr =JSON.parse(localStorage.getItem("cart"))||[];
+   function addtocart(i) { 
+    var product=mensData.filter(function(e,ind){
+      return ind==i;
+    })
+    console.log(product);
+    cartarr.push(product[0]);
+    console.log(product);
+    localStorage.setItem("cart",JSON.stringify(cartarr));
+   }
+</script>
